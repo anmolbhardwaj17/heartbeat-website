@@ -128,13 +128,13 @@ export default function Hero() {
 
       tl.call(() => { introTween.kill() }, [], 0)
       tl.set('.msg-1', { opacity: 1, y: 0 }, 0)
-      tl.to('.msg-1', { opacity: 0, y: -30, duration: 0.07, ease: 'power2.in' }, 0.05)
+      tl.to('.msg-1', { opacity: 0, y: -20, duration: 0.06, ease: 'power2.in' }, 0.08)
 
-      tl.to('.msg-2', { opacity: 1, y: 0, duration: 0.07, ease: 'power2.out' }, 0.12)
-      tl.to('.msg-2', { opacity: 0, y: -30, duration: 0.07, ease: 'power2.in' }, 0.23)
+      tl.fromTo('.msg-2', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.06, ease: 'power2.out' }, 0.14)
+      tl.to('.msg-2', { opacity: 0, y: -20, duration: 0.06, ease: 'power2.in' }, 0.24)
 
-      tl.to('.msg-3', { opacity: 1, y: 0, duration: 0.07, ease: 'power2.out' }, 0.30)
-      tl.to('.msg-3', { opacity: 0, y: -30, duration: 0.07, ease: 'power2.in' }, 0.42)
+      tl.fromTo('.msg-3', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.06, ease: 'power2.out' }, 0.30)
+      tl.to('.msg-3', { opacity: 0, y: -20, duration: 0.06, ease: 'power2.in' }, 0.40)
 
       // ── SHRINK — calculate scale for 28px final size on any screen ──
       const vmax = Math.max(window.innerWidth, window.innerHeight)
