@@ -63,7 +63,7 @@ export default function PhoneSection() {
         <h2>
           <span className="how-line"><span className="how-word">Three </span><span className="how-word">steps.</span></span>
           <span className="how-line how-line-mid"><span className="how-word">Thirty </span><span className="how-word">seconds.</span></span>
-          <span className="how-line"><span className="how-word">Your </span><span className="how-word">heart </span><span className="how-word">rate.</span></span>
+          <span className="how-line"><span className="how-word red">Your </span><span className="how-word red">heart </span><span className="how-word red">rate.</span></span>
         </h2>
       </div>
 

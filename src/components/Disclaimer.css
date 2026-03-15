@@ -2,7 +2,6 @@
   display: flex;
   gap: 60px;
   padding: 60px 80px;
-  border-top: 1px solid var(--text4);
 }
 
 .disclaimer-label {

@@ -52,7 +52,7 @@ export default function WhySection() {
       <span className="section-label" style={{ color: 'var(--red)', marginBottom: 20, display: 'block' }}>WHY HEARTBEAT</span>
 
       <h2 className="why-headline">
-        Heart rate monitoring{' '}<span className="why-br-mobile" />shouldn't be{' '}<span className="why-br-mobile" />a <span className="red">luxury</span>.
+        Heart rate monitoring{' '}<span className="why-br-mobile" />shouldn't be{' '}<span className="why-br-mobile" />a <span className="red">luxury.</span>
       </h2>
 
       <p className="why-body">

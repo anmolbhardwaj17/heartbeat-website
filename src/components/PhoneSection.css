@@ -6,7 +6,7 @@
 .how-columns {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 72px;
 }
 
 /* ===== Left — Title ===== */
@@ -28,6 +28,10 @@
 }
 .how-line {
   display: block;
+  margin-bottom: 6px;
+}
+.how-line:last-child {
+  margin-bottom: 0;
 }
 .how-word {
   display: inline-block;
@@ -41,6 +45,20 @@
   justify-content: center;
   perspective: 1000px;
   position: relative;
+}
+.phone-mockup-wrap::before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 57, 70, 0.08) 0%, rgba(230, 57, 70, 0.03) 45%, transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .phone-pulse-rings {
@@ -60,20 +78,23 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid var(--red);
+  border: 1px solid var(--red);
   opacity: 0;
-  animation: phonePulse 3.2s ease-out infinite;
+  animation: phonePulse 1.1s ease-out infinite;
 }
 
-.p1 { animation-delay: 0s; }
-.p2 { animation-delay: 0.8s; }
-.p3 { animation-delay: 1.6s; }
-.p4 { animation-delay: 2.4s; }
+/* Lub beat */
+.p1 { animation-delay: 0.14s; }
+/* Dub beat */
+.p2 { animation-delay: 0.42s; }
+/* Next lub */
+.p3 { animation-delay: 1.24s; }
+/* Next dub */
+.p4 { animation-delay: 1.52s; }
 
 @keyframes phonePulse {
-  0% { width: 100px; height: 100px; opacity: 0.25; }
-  50% { opacity: 0.12; }
-  100% { width: 900px; height: 900px; opacity: 0; }
+  0% { width: 80px; height: 80px; opacity: 0.12; }
+  100% { width: 600px; height: 600px; opacity: 0; }
 }
 
 .phone-device {
@@ -233,8 +254,7 @@
     border-radius: 22px;
   }
   @keyframes phonePulse {
-    0% { width: 80px; height: 80px; opacity: 0.2; }
-    50% { opacity: 0.1; }
-    100% { width: 500px; height: 500px; opacity: 0; }
+    0% { width: 60px; height: 60px; opacity: 0.1; }
+    100% { width: 350px; height: 350px; opacity: 0; }
   }
 }

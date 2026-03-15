@@ -111,7 +111,7 @@
 .hero-nav-left { display: flex; align-items: center; gap: 8px; }
 .nav-icon { width: 28px; height: 28px; border-radius: 8px; background: rgba(230, 57, 70, 0.08); display: flex; align-items: center; justify-content: center; }
 .nav-brand { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
-.hero-nav-center { display: flex; gap: 32px; }
+.hero-nav-center { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 32px; }
 .hero-nav-center a { font-size: 13px; font-weight: 400; color: var(--text3); text-decoration: none; transition: color 0.2s; }
 .hero-nav-center a:hover { color: var(--text); }
 .nav-right { display: flex; align-items: center; gap: 10px; }
@@ -120,7 +120,7 @@
 .nav-cta-text-short { display: none; }
 
 /* Grid lines */
-.grid-line { position: absolute; background: var(--text4); opacity: 0.04; z-index: 1; }
+.grid-line { position: absolute; background: var(--text4); opacity: 0.008; z-index: 1; }
 .gl-h1 { top: 20%; left: 0; right: 0; height: 1px; }
 .gl-h2 { bottom: 25%; left: 0; right: 0; height: 1px; }
 .gl-v1 { top: 0; bottom: 0; left: 12%; width: 1px; }
@@ -200,13 +200,9 @@
 /* Bottom */
 .hero-bottom {
   position: absolute; bottom: 0; left: 0; right: 0;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 40px; border-top: 1px solid var(--text4); z-index: 8;
+  display: flex; justify-content: center;
+  padding: 20px 40px; z-index: 8;
 }
-.hero-bottom-left, .hero-bottom-right { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text3); }
-.hero-bottom-left a { color: var(--text2); text-decoration: none; font-weight: 500; }
-.hero-bottom-left a:hover { color: var(--text); }
-.bottom-label { font-size: 10px; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
 .hero-scroll-hint { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); }
 .hero-scroll-hint svg {
   animation: scrollBounce 2s ease-in-out infinite;
@@ -230,5 +226,5 @@
   .hero-center { margin-top: 100px; }
   .hero-center h1 { font-size: 28px; }
   .hero-ctas { flex-direction: column; }
-  .hero-bottom { padding: 16px 20px; } .hero-bottom-left, .hero-bottom-right { display: none; }
+  .hero-bottom { padding: 16px 20px; }
 }

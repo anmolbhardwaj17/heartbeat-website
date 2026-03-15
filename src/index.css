@@ -25,7 +25,6 @@
   --text3: rgba(237, 237, 240, 0.4);
   --text4: rgba(237, 237, 240, 0.1);
   --red: #FF4D5A;
-  --red: #E63946;
   --green: #2ECC71;
 }
 
@@ -67,8 +66,13 @@ body {
 }
 
 .section-divider {
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 80px;
   height: 1px;
   background: var(--text4);
+}
+
+@media (max-width: 768px) {
+  .section-divider {
+    margin: 0 20px;
+  }
 }

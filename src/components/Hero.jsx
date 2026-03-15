@@ -51,7 +51,7 @@ export default function Hero() {
               if (staticEl) {
                 const isMobile = window.innerWidth <= 768
                 const heartSize = isMobile ? '100px' : '120px'
-                const desktopOffset = Math.min(180, Math.max(120, window.innerHeight * 0.15))
+                const desktopOffset = Math.min(200, Math.max(140, window.innerHeight * 0.17))
                 const heartOffset = isMobile ? '18vh' : desktopOffset + 'px'
                 staticEl.style.top = `calc(50% - ${heartOffset})`
                 staticEl.style.left = '50%'
@@ -146,7 +146,7 @@ export default function Hero() {
       const finalScale = targetSize / (vmax * 2.5)
 
       tl.to('.giant-heart', {
-        scale: finalScale, y: isMobile ? '-18vh' : -Math.min(180, Math.max(120, window.innerHeight * 0.15)), duration: 0.50, ease: 'power2.inOut',
+        scale: finalScale, y: isMobile ? '-18vh' : -Math.min(200, Math.max(140, window.innerHeight * 0.17)), duration: 0.50, ease: 'power2.inOut',
       }, 0.45)
 
       // ── BEATING — on the static heart, no conflicts ──
@@ -286,9 +286,7 @@ export default function Hero() {
           </div>
 
           <div className="hero-bottom">
-            <div className="hero-bottom-left"><span className="bottom-label">Built by</span><a href="https://anmolbhardwaj.com" target="_blank" rel="noopener noreferrer">anmolbhardwaj.com</a></div>
             <div className="hero-scroll-hint"><span>Scroll to explore</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
-            <div className="hero-bottom-right"><span className="bottom-label">v1.0.0</span><span>2026</span></div>
           </div>
         </div>
       </div>
