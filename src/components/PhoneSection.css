@@ -93,7 +93,7 @@
 .p4 { animation-delay: 1.52s; }
 
 @keyframes phonePulse {
-  0% { width: 80px; height: 80px; opacity: 0.12; }
+  0% { width: 80px; height: 80px; opacity: 0.18; }
   100% { width: 600px; height: 600px; opacity: 0; }
 }
 

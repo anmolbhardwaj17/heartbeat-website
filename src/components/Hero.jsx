@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ThemeToggle from './ThemeToggle'
+import { DottedGlowBackground } from './ui/DottedGlowBackground'
 import './Hero.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -140,7 +141,8 @@ export default function Hero() {
       const vmax = Math.max(window.innerWidth, window.innerHeight)
       const isMobile = window.innerWidth <= 768
       const targetSize = isMobile ? 100 : 120
-      const finalScale = targetSize / (vmax * 2.5)
+      const imgScale = isMobile ? 7 : 5
+      const finalScale = targetSize / (vmax * 2.5 * imgScale)
 
       tl.to('.giant-heart', {
         scale: finalScale, y: isMobile ? '-18vh' : -Math.min(200, Math.max(140, window.innerHeight * 0.17)), duration: 0.50, ease: 'power2.inOut',
@@ -173,12 +175,7 @@ export default function Hero() {
 
         r.to('.hero-nav', { opacity: 1, duration: 0.4 }, 0)
 
-        r.fromTo('.gl-h1, .gl-h2',
-          { scaleX: 0, opacity: 0 },
-          { scaleX: 1, opacity: 1, duration: 0.5, stagger: 0.06 }, 0.05)
-        r.fromTo('.gl-v1, .gl-v2',
-          { scaleY: 0, opacity: 0 },
-          { scaleY: 1, opacity: 1, duration: 0.5, stagger: 0.06 }, 0.05)
+
 
         r.fromTo('.word-1',
           { opacity: 0, y: 25 },
@@ -207,6 +204,28 @@ export default function Hero() {
 
   return (
     <div ref={ref}>
+      {/* Nav — completely outside hero-container to avoid overflow clip */}
+      <nav className="hero-nav hero-content-hidden">
+        <div className="hero-nav-left">
+          <div className="nav-icon"><svg width="16" height="14" viewBox="0 0 18 16" fill="none"><path d="M9 16L7.695 14.82C3.06 10.62 0 7.84 0 4.4C0 1.62 2.178 -0.4 4.95 -0.4C6.516 -0.4 8.019 0.34 9 1.504C9.981 0.34 11.484 -0.4 13.05 -0.4C15.822 -0.4 18 1.62 18 4.4C18 7.84 14.94 10.62 10.305 14.82L9 16Z" fill="#E63946"/></svg></div>
+          <span className="nav-brand">HeartBeat</span>
+        </div>
+        <div className="hero-nav-center">
+          <a href="#how">How It Works</a>
+          <a href="#features">Features</a>
+          <a href="#technology">Technology</a>
+          <a href="https://github.com/anmolbhardwaj17/heartbeat-website" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <div className="nav-right">
+          <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="nav-cta">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
+            <span className="nav-cta-text-full">Download for Android</span>
+            <span className="nav-cta-text-short">Download</span>
+          </a>
+          <ThemeToggle />
+        </div>
+      </nav>
+
       <div className="hero-container">
         {/* Giant heart — used only for scroll shrink animation */}
         <div className="giant-heart">
@@ -224,7 +243,8 @@ export default function Hero() {
           <span className="msg-text">own a smartwatch.</span>
         </div>
         <div className="msg msg-3">
-          <span className="msg-bold">HeartBeat is for<br/>the other <span className="rmt-hl">5 billion</span>.</span>
+          <span className="msg-text">HeartBeat is for the other</span>
+          <span className="msg-bold rmt-hl">5 billion.</span>
         </div>
 
         {/* Scroll hint on red screen */}
@@ -235,6 +255,17 @@ export default function Hero() {
 
         {/* White hero */}
         <div className="hero-white-bg">
+          {/* Dotted glow background */}
+          <DottedGlowBackground
+            gap={22}
+            radius={0.2}
+            opacity={0.25}
+            glowColor="rgba(230, 57, 70, 0.25)"
+            dotColor="rgba(150, 150, 150, 0.05)"
+            speedMin={0.4}
+            speedMax={1.2}
+            speedScale={0.8}
+          />
           {/* Static beating heart — replaces the giant heart after shrink */}
           <div className="hero-heart-static">
             <img src="/images/heart.svg" alt="" />
@@ -245,31 +276,6 @@ export default function Hero() {
             <div className="pulse-ring r2"></div>
           </div>
 
-          <div className="grid-line gl-h1 hero-content-hidden"></div>
-          <div className="grid-line gl-h2 hero-content-hidden"></div>
-          <div className="grid-line gl-v1 hero-content-hidden"></div>
-          <div className="grid-line gl-v2 hero-content-hidden"></div>
-
-          <nav className="hero-nav hero-content-hidden">
-            <div className="hero-nav-left">
-              <div className="nav-icon"><svg width="16" height="14" viewBox="0 0 18 16" fill="none"><path d="M9 16L7.695 14.82C3.06 10.62 0 7.84 0 4.4C0 1.62 2.178 -0.4 4.95 -0.4C6.516 -0.4 8.019 0.34 9 1.504C9.981 0.34 11.484 -0.4 13.05 -0.4C15.822 -0.4 18 1.62 18 4.4C18 7.84 14.94 10.62 10.305 14.82L9 16Z" fill="#E63946"/></svg></div>
-              <span className="nav-brand">HeartBeat</span>
-            </div>
-            <div className="hero-nav-center">
-              <a href="#how">How It Works</a>
-              <a href="#features">Features</a>
-              <a href="#technology">Technology</a>
-              <a href="https://github.com/anmolbhardwaj17/heartbeat-website" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-            <div className="nav-right">
-              <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="nav-cta">
-                <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
-                <span className="nav-cta-text-full">Download for Android</span>
-                <span className="nav-cta-text-short">Download</span>
-              </a>
-              <ThemeToggle />
-            </div>
-          </nav>
 
           <div className="hero-center hero-content-hidden">
             <h1 className="hero-title">

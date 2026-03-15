@@ -1,8 +1,11 @@
 /* Container — 100vh, gets pinned */
 .hero-container {
-  width: 100%; height: 100vh;
+  width: 100%; height: 100dvh; height: 100vh;
   position: relative; overflow: hidden;
   background: var(--bg);
+}
+@supports (height: 100dvh) {
+  .hero-container { height: 100dvh; }
 }
 
 /* ===== GIANT HEART SVG — fills entire screen ===== */
@@ -15,6 +18,7 @@
   width: 250vmax; height: 250vmax;
   object-fit: contain;
   filter: drop-shadow(0 8px 40px rgba(230, 57, 70, 0.25));
+  transform: scale(5);
 }
 
 /* ===== STATIC BEATING HEART — replaces giant heart after shrink ===== */
@@ -55,6 +59,10 @@
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 48px; font-weight: 700; color: white;
   letter-spacing: -0.03em; line-height: 1.2;
+  display: block;
+}
+.msg-bold-inline {
+  font-weight: 700; color: white;
 }
 
 /* ===== WHITE HERO underneath ===== */
@@ -64,9 +72,10 @@
   overflow: hidden;
 }
 
+
 /* Hide hero content in CSS to prevent flash before GSAP loads — removed by GSAP */
 .hero-content-hidden {
-  opacity: 0 !important;
+  opacity: 0;
 }
 
 /* Scroll hint on the red intro screen */
@@ -89,21 +98,6 @@
 }
 
 
-/* Soft red glow behind hero content */
-.hero-white-bg::before {
-  content: '';
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 900px;
-  height: 900px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(230, 57, 70, 0.08) 0%, rgba(230, 57, 70, 0.03) 45%, transparent 70%);
-  pointer-events: none;
-  z-index: 2;
-  filter: blur(40px);
-}
 
 /* Pulse rings — positioned to match shrunk heart */
 .pulse-rings {
@@ -234,7 +228,7 @@
   display: flex; justify-content: center;
   padding: 20px 40px; z-index: 8;
 }
-.hero-scroll-hint { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); }
+.hero-scroll-hint { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text3); }
 .hero-scroll-hint svg {
   animation: scrollBounce 2s ease-in-out infinite;
 }
@@ -246,14 +240,10 @@
 /* Mobile */
 @media (max-width: 768px) {
   .msg-num { font-size: 32px; } .msg-text { font-size: 18px; } .msg-bold { font-size: 32px; }
+  .giant-heart img { transform: scale(7); }
   .hero-nav { padding: 16px 20px; } .hero-nav-center { display: none; }
   .nav-cta-text-full { display: none; }
   .nav-cta-text-short { display: inline; }
-  .hero-white-bg::before {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(230, 57, 70, 0.06) 0%, rgba(230, 57, 70, 0.02) 40%, transparent 70%);
-  }
   .hero-center { margin-top: 100px; }
   .hero-center h1 { font-size: 28px; }
   .hero-ctas { flex-direction: column; }
