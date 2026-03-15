@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import App from './App'
-import { inject } from '@vercel/analytics'
-
-inject()
 
 // Apply theme before render to prevent flash
 const savedTheme = localStorage.getItem('heartbeat-theme') ||
