@@ -130,7 +130,7 @@
 .hero-center {
   z-index: 8; text-align: center;
   display: flex; flex-direction: column; align-items: center;
-  gap: 14px; margin-top: 40px;
+  gap: 14px; margin-top: 32px;
 }
 .hero-title {
   font-family: 'Space Grotesk', system-ui, sans-serif;

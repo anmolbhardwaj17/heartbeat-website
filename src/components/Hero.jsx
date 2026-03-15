@@ -50,8 +50,9 @@ export default function Hero() {
               const staticEl = document.querySelector('.hero-heart-static')
               if (staticEl) {
                 const isMobile = window.innerWidth <= 768
-                const heartSize = isMobile ? '100px' : '180px'
-                const heartOffset = isMobile ? '18vh' : '14vh'
+                const heartSize = isMobile ? '100px' : '120px'
+                const desktopOffset = Math.min(180, Math.max(120, window.innerHeight * 0.15))
+                const heartOffset = isMobile ? '18vh' : desktopOffset + 'px'
                 staticEl.style.top = `calc(50% - ${heartOffset})`
                 staticEl.style.left = '50%'
                 staticEl.style.transform = 'translate(-50%, -50%)'
@@ -141,11 +142,11 @@ export default function Hero() {
       // ── SHRINK — calculate scale for 28px final size on any screen ──
       const vmax = Math.max(window.innerWidth, window.innerHeight)
       const isMobile = window.innerWidth <= 768
-      const targetSize = isMobile ? 100 : 180
+      const targetSize = isMobile ? 100 : 120
       const finalScale = targetSize / (vmax * 2.5)
 
       tl.to('.giant-heart', {
-        scale: finalScale, y: isMobile ? '-18vh' : '-14vh', duration: 0.50, ease: 'power2.inOut',
+        scale: finalScale, y: isMobile ? '-18vh' : -Math.min(180, Math.max(120, window.innerHeight * 0.15)), duration: 0.50, ease: 'power2.inOut',
       }, 0.45)
 
       // ── BEATING — on the static heart, no conflicts ──
