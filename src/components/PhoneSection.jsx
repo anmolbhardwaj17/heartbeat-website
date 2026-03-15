@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './PhoneSection.css'
@@ -7,41 +7,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function PhoneSection() {
   const ref = useRef(null)
-  const phoneRef = useRef(null)
-
-  const handleMouseMove = useCallback((e) => {
-    const el = phoneRef.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    const x = (e.clientX - rect.left) / rect.width - 0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5
-    const rotY = x * 25
-    const rotX = y * -15
-    el.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`
-
-    // Dynamic edge shine based on tilt
-    const bezel = el.querySelector('.phone-bezel')
-    if (bezel) {
-      const shineAngle = 135 + rotY * 2
-      const shineIntensity = Math.abs(x) * 0.2 + 0.05
-      bezel.style.boxShadow = `
-        0 50px 100px rgba(0,0,0,0.22),
-        0 20px 40px rgba(0,0,0,0.15),
-        inset ${-rotY * 0.3}px 1px 0 rgba(255,255,255,${shineIntensity}),
-        inset ${rotY * 0.3}px -1px 0 rgba(0,0,0,0.4)
-      `
-    }
-  }, [])
-
-  const handleMouseLeave = useCallback(() => {
-    const el = phoneRef.current
-    if (!el) return
-    el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
-    const bezel = el.querySelector('.phone-bezel')
-    if (bezel) {
-      bezel.style.boxShadow = ''
-    }
-  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -94,17 +59,8 @@ export default function PhoneSection() {
           <div className="phone-pulse p3"></div>
           <div className="phone-pulse p4"></div>
         </div>
-        <div
-          className="phone-device"
-          ref={phoneRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="phone-device">
           <div className="phone-bezel">
-            <div className="phone-frame-ring" />
-            <div className="phone-btn-right" />
-            <div className="phone-btn-left-1" />
-            <div className="phone-btn-left-2" />
             <div className="phone-notch" />
             <div className="phone-screen">
               <img

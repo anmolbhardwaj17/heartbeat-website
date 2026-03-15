@@ -98,10 +98,6 @@
 }
 
 .phone-device {
-  transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
-  transition: transform 0.15s ease-out;
-  will-change: transform;
-  transform-style: preserve-3d;
   position: relative;
   z-index: 1;
 }
@@ -120,74 +116,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.4);
   position: relative;
-  transform-style: preserve-3d;
-}
-
-/* 3D side edges — visible when tilted */
-.phone-bezel::before {
-  content: '';
-  position: absolute;
-  top: 12px; bottom: 12px;
-  right: -4px;
-  width: 4px;
-  border-radius: 0 4px 4px 0;
-  background: linear-gradient(to right, #2A2A2E, #4A4A52);
-  transform: rotateY(90deg) translateZ(0px);
-  transform-origin: left center;
-}
-.phone-bezel::after {
-  content: '';
-  position: absolute;
-  top: 12px; bottom: 12px;
-  left: -4px;
-  width: 4px;
-  border-radius: 4px 0 0 4px;
-  background: linear-gradient(to left, #2A2A2E, #4A4A52);
-  transform: rotateY(-90deg) translateZ(0px);
-  transform-origin: right center;
-}
-
-/* Side buttons */
-.phone-btn-right {
-  position: absolute;
-  right: -5px;
-  top: 100px;
-  width: 3px;
-  height: 40px;
-  background: linear-gradient(to right, #3A3A3E, #5A5A62);
-  border-radius: 0 2px 2px 0;
-}
-.phone-btn-left-1 {
-  position: absolute;
-  left: -5px;
-  top: 80px;
-  width: 3px;
-  height: 28px;
-  background: linear-gradient(to left, #3A3A3E, #5A5A62);
-  border-radius: 2px 0 0 2px;
-}
-.phone-btn-left-2 {
-  position: absolute;
-  left: -5px;
-  top: 120px;
-  width: 3px;
-  height: 28px;
-  background: linear-gradient(to left, #3A3A3E, #5A5A62);
-  border-radius: 2px 0 0 2px;
-}
-
-/* Metallic frame ring */
-.phone-frame-ring {
-  position: absolute;
-  inset: -2px;
-  border-radius: 38px;
-  border: 2px solid transparent;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02), rgba(255,255,255,0.08)) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
 }
 
 .phone-notch {
