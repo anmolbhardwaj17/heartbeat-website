@@ -21,10 +21,7 @@ export default function Hero() {
 
       let revealStarted = false
 
-      // Hide hero content + static heart initially
-      gsap.set('.hero-nav, .gl-h1, .gl-h2, .gl-v1, .gl-v2, .word-1, .word-2, .hero-sub, .hero-ctas, .hero-bottom', {
-        opacity: 0
-      })
+      // Hero content hidden via CSS class .hero-content-hidden
       gsap.set('.hero-heart-static', { opacity: 0 })
 
       const tl = gsap.timeline({
@@ -166,6 +163,12 @@ export default function Hero() {
 
       // ── REVEAL ──
       function playReveal() {
+        // Remove hidden class from all hero content
+        document.querySelectorAll('.hero-content-hidden').forEach(el => el.classList.remove('hero-content-hidden'))
+
+        // Show nav with background
+        document.querySelector('.hero-nav')?.classList.add('nav-visible')
+
         const r = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
         r.to('.hero-nav', { opacity: 1, duration: 0.4 }, 0)
@@ -242,12 +245,12 @@ export default function Hero() {
             <div className="pulse-ring r2"></div>
           </div>
 
-          <div className="grid-line gl-h1"></div>
-          <div className="grid-line gl-h2"></div>
-          <div className="grid-line gl-v1"></div>
-          <div className="grid-line gl-v2"></div>
+          <div className="grid-line gl-h1 hero-content-hidden"></div>
+          <div className="grid-line gl-h2 hero-content-hidden"></div>
+          <div className="grid-line gl-v1 hero-content-hidden"></div>
+          <div className="grid-line gl-v2 hero-content-hidden"></div>
 
-          <nav className="hero-nav">
+          <nav className="hero-nav hero-content-hidden">
             <div className="hero-nav-left">
               <div className="nav-icon"><svg width="16" height="14" viewBox="0 0 18 16" fill="none"><path d="M9 16L7.695 14.82C3.06 10.62 0 7.84 0 4.4C0 1.62 2.178 -0.4 4.95 -0.4C6.516 -0.4 8.019 0.34 9 1.504C9.981 0.34 11.484 -0.4 13.05 -0.4C15.822 -0.4 18 1.62 18 4.4C18 7.84 14.94 10.62 10.305 14.82L9 16Z" fill="#E63946"/></svg></div>
               <span className="nav-brand">HeartBeat</span>
@@ -268,7 +271,7 @@ export default function Hero() {
             </div>
           </nav>
 
-          <div className="hero-center">
+          <div className="hero-center hero-content-hidden">
             <h1 className="hero-title">
               <span className="word word-1">Introducing </span>
               <span className="word word-2">HeartBeat</span>
@@ -291,7 +294,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hero-bottom">
+          <div className="hero-bottom hero-content-hidden">
             <div className="hero-scroll-hint"><span>Scroll to explore</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
           </div>
         </div>
