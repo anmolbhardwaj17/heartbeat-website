@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
           <h2>Open Source</h2>
           <p>
             HeartBeat is open source. You can inspect the complete source code to verify these privacy
-            claims at <a href="https://github.com/anmolbhardwaj17/heart-beat" target="_blank" rel="noopener noreferrer">github.com/anmolbhardwaj17/heart-beat</a>.
+            claims at <a href="https://github.com/anmolbhardwaj17/heartbeat-website" target="_blank" rel="noopener noreferrer">github.com/anmolbhardwaj17/heartbeat-website</a>.
           </p>
 
           <h2>Children's Privacy</h2>

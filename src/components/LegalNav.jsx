@@ -16,7 +16,7 @@ export default function LegalNav() {
         <Link to="/">Home</Link>
         <Link to="/privacy-policy">Privacy</Link>
         <Link to="/terms-of-service">Terms</Link>
-        <a href="https://github.com/anmolbhardwaj17/heart-beat" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/anmolbhardwaj17/heartbeat-website" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
       <div className="nav-right">
         <Link to="/" className="nav-cta">Back to Home</Link>

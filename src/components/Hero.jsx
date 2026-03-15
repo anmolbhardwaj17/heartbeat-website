@@ -39,7 +39,7 @@ export default function Hero() {
             if (self.progress >= 0.96 && !revealStarted) {
               revealStarted = true
 
-              gsap.set('.msg-1, .msg-2, .msg-3', { display: 'none' })
+              gsap.set('.msg-1, .msg-2, .msg-3, .intro-scroll-hint', { display: 'none' })
 
               // 1. Lock the giant heart's current transform BEFORE kill
               const giantEl = document.querySelector('.giant-heart')
@@ -212,16 +212,22 @@ export default function Hero() {
 
         {/* Messages on red */}
         <div className="msg msg-1">
-          <span className="msg-num">6,800,000,000</span>
+          <span className="msg-num">6.8 billion</span>
           <span className="msg-text">people own a smartphone.</span>
         </div>
         <div className="msg msg-2">
           <span className="msg-text">Only</span>
-          <span className="msg-num">1,400,000,000</span>
+          <span className="msg-num">1.4 billion</span>
           <span className="msg-text">own a smartwatch.</span>
         </div>
         <div className="msg msg-3">
           <span className="msg-bold">HeartBeat is for<br/>the other <span className="rmt-hl">5 billion</span>.</span>
+        </div>
+
+        {/* Scroll hint on red screen */}
+        <div className="intro-scroll-hint">
+          <span>Scroll to explore</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </div>
 
         {/* White hero */}
@@ -250,7 +256,7 @@ export default function Hero() {
               <a href="#how">How It Works</a>
               <a href="#features">Features</a>
               <a href="#technology">Technology</a>
-              <a href="https://github.com/anmolbhardwaj17/heart-beat" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://github.com/anmolbhardwaj17/heartbeat-website" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
             <div className="nav-right">
               <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="nav-cta">
