@@ -132,12 +132,12 @@
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 40px; z-index: 9999;
   background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-bottom: none;
+  transition: background 0.3s ease;
 }
 .hero-nav.nav-visible {
-  background: var(--bg);
-  box-shadow: 0 1px 0 var(--text4);
+  background: linear-gradient(to bottom, var(--bg) 70%, transparent);
+  padding-bottom: 32px;
 }
 .hero-nav-left { display: flex; align-items: center; gap: 8px; }
 .nav-icon { width: 28px; height: 28px; border-radius: 8px; background: rgba(230, 57, 70, 0.08); display: flex; align-items: center; justify-content: center; }

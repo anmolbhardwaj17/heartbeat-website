@@ -42,7 +42,7 @@ export default function Footer() {
         </p>
         <div className="footer-cta-row">
           <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="footer-cta">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M3.18 1.22A1.18 1.18 0 002 2.35v19.3c0 .5.32.94.78 1.1l10.6-10.75L3.18 1.22zm1.14-.84l11.1 6.32-2.84 2.88L4.32.38zM22 12c0-.65-.36-1.22-.92-1.52L17.3 8.5l-3.12 3.17 3.12 3.17 3.78-1.98A1.73 1.73 0 0022 12zm-7.54.84l-2.84 2.88 11.1 6.32-8.26-9.2z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
             Download for Android
           </a>
           <div className="footer-ios-wrap">
