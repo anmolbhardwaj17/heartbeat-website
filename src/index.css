@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --text: #1A1A1E;
+  --text2: rgba(26, 26, 30, 0.5);
+  --text3: rgba(26, 26, 30, 0.35);
+  --text4: rgba(26, 26, 30, 0.08);
+  --red: #E63946;
+  --green: #2ECC71;
+}
+
+[data-theme="dark"] {
+  --bg: #131316;
+  --surface: #1C1C20;
+  --text: #EDEDF0;
+  --text2: rgba(237, 237, 240, 0.55);
+  --text3: rgba(237, 237, 240, 0.4);
+  --text4: rgba(237, 237, 240, 0.1);
+  --red: #FF4D5A;
+  --red: #E63946;
+  --green: #2ECC71;
+}
+
+html {
+  /* scroll-behavior handled by Lenis */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.red {
+  color: var(--red);
+}
+
+.green {
+  color: var(--green);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--text3);
+  display: block;
+}
+
+.section-label.red {
+  color: var(--red);
+}
+
+.section-spacer {
+  height: 80px;
+}
+
+.section-divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 1px;
+  background: var(--text4);
+}

@@ -1,0 +1,240 @@
+.phone-section {
+  padding: 100px 60px;
+  overflow: hidden;
+}
+
+.how-columns {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ===== Left — Title ===== */
+.how-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: right;
+}
+
+.how-left h2 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+.how-line {
+  display: block;
+}
+.how-word {
+  display: inline-block;
+  margin-right: 0.12em;
+}
+
+/* ===== Center — Phone mockup ===== */
+.phone-mockup-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+  position: relative;
+}
+
+.phone-pulse-rings {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.phone-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid var(--red);
+  opacity: 0;
+  animation: phonePulse 3.2s ease-out infinite;
+}
+
+.p1 { animation-delay: 0s; }
+.p2 { animation-delay: 0.8s; }
+.p3 { animation-delay: 1.6s; }
+.p4 { animation-delay: 2.4s; }
+
+@keyframes phonePulse {
+  0% { width: 100px; height: 100px; opacity: 0.25; }
+  50% { opacity: 0.12; }
+  100% { width: 900px; height: 900px; opacity: 0; }
+}
+
+.phone-device {
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 1;
+}
+
+.phone-bezel {
+  width: 260px;
+  background: #1A1A1E;
+  border-radius: 36px;
+  padding: 12px 9px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.18),
+    0 16px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.phone-bezel::before {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 90px;
+  width: 3px;
+  height: 36px;
+  background: #2A2A2E;
+  border-radius: 0 2px 2px 0;
+}
+.phone-bezel::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 72px;
+  width: 3px;
+  height: 24px;
+  background: #2A2A2E;
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 36px 0 #2A2A2E;
+}
+
+.phone-notch {
+  width: 80px;
+  height: 24px;
+  background: #1A1A1E;
+  border-radius: 0 0 14px 14px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-notch::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: #0A0A0F;
+  border-radius: 50%;
+}
+
+.phone-screen {
+  width: 100%;
+  border-radius: 27px;
+  overflow: hidden;
+  background: #0A0A0F;
+}
+.phone-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.phone-chin {
+  height: 3px;
+}
+
+/* ===== Right — Steps ===== */
+.how-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.how-step {
+  display: flex;
+  gap: 14px;
+}
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(230, 57, 70, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--red);
+  flex-shrink: 0;
+}
+.step-body h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.step-body p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .phone-section {
+    padding: 48px 20px;
+    gap: 24px;
+  }
+  .how-columns {
+    flex-direction: column;
+    gap: 36px;
+  }
+  .how-left {
+    text-align: center;
+  }
+  .how-left h2 {
+    font-size: 28px;
+  }
+  .how-line, .how-line-mid {
+    display: inline;
+  }
+  .how-line:last-child {
+    display: block;
+  }
+  .how-steps {
+    gap: 28px;
+  }
+  .phone-bezel {
+    width: 220px;
+    border-radius: 30px;
+  }
+  .phone-screen {
+    border-radius: 22px;
+  }
+  @keyframes phonePulse {
+    0% { width: 80px; height: 80px; opacity: 0.2; }
+    50% { opacity: 0.1; }
+    100% { width: 500px; height: 500px; opacity: 0; }
+  }
+}

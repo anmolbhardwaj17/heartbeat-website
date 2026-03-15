@@ -1,0 +1,22 @@
+.why-section {
+  padding: 100px 80px; text-align: center;
+}
+
+.why-headline { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 38px; font-weight: 700; color: var(--text); letter-spacing: -0.04em; line-height: 1.2; margin-bottom: 24px; }
+.why-br-mobile { display: none; }
+.why-body { font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 400; color: var(--text2); line-height: 1.7; max-width: 640px; margin: 0 auto 48px; }
+.why-stats { display: flex; justify-content: center; gap: 48px; }
+.why-stat { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.why-stat-value { font-size: 32px; font-weight: 600; color: var(--text); }
+.why-stat-label { font-size: 12px; font-weight: 400; color: var(--text3); }
+.why-divider { width: 1px; height: 40px; background: var(--text4); align-self: center; }
+
+@media (max-width: 768px) {
+  .why-section { padding: 60px 20px; text-align: left; }
+  .why-headline { font-size: 28px; }
+  .why-br-mobile { display: block; }
+  .why-body { margin: 0 0 48px; }
+  .why-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .why-stat { align-items: flex-start; }
+  .why-divider { display: none; }
+}

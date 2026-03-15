@@ -1,0 +1,41 @@
+.disclaimer-section {
+  display: flex;
+  gap: 60px;
+  padding: 60px 80px;
+  border-top: 1px solid var(--text4);
+}
+
+.disclaimer-label {
+  flex-shrink: 0;
+  width: 160px;
+  padding-top: 2px;
+}
+
+.disclaimer-content {
+  flex: 1;
+  max-width: 640px;
+}
+
+.disclaimer-content p {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text2);
+}
+
+.disclaimer-content strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .disclaimer-section {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 16px;
+  }
+
+  .disclaimer-label {
+    width: auto;
+  }
+}
